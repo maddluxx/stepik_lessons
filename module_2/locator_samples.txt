@@ -1,0 +1,5 @@
+input#name
+//input[@name="lastname"]
+input.third
+//input[@data-custom="profile_phone"]
+//input[contains(@class, "second")]
