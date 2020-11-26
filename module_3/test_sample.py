@@ -14,32 +14,46 @@
 from selenium import webdriver
 import time
 
-try:
-    browser = webdriver.Chrome()
-    browser.get("http://selenium1py.pythonanywhere.com/ru/catalogue/")
 
-    # Arrange
-    # Начальное значение "Всего в корзине: 0,00 £"
-    basket_text = browser.find_element_by_css_selector(".basket-mini").text.split(':')[1].split(' ')[1]
-    assert basket_text == "0,00"
+# Data generale
+catalogue_page_link = "http://selenium1py.pythonanywhere.com/ru/catalogue/"
+basket_mini_locator = ".basket-mini"
+first_button_locator = "button.btn-primary"
+basket_update_alert_locator = ".alert-info .alertinner p strong"
 
-    # Act
-    button = browser.find_element_by_css_selector("button.btn-primary")
-    button.click()
 
-    time.sleep(1)
+def test_basket_add_item():
+    # Data specifique
+    basket_init_price = "0,00"
 
-    alert_text = browser.find_element_by_css_selector(".alert-info .alertinner p strong").text.split(' ')[0]
-    basket_text = browser.find_element_by_css_selector(".basket-mini").text.split(':')[1].split(' ')[1]
+    try:
+        # Arrange
+        browser = webdriver.Chrome()
+        browser.get(catalogue_page_link)
+        # Начальное значение "Всего в корзине: 0,00 £"
+        basket_price_value = browser.find_element_by_css_selector(basket_mini_locator).text.split(':')[1].split(' ')[1]
+        assert basket_price_value == basket_init_price, \
+            f"Expected \"{basket_init_price}\" for initial basket price, got \"{basket_price_value}\""
 
-    # Assert
-    # Шаг 3, сверяем значение поля "Всего в корзине: X £" со значением в тексте алерта "Стоимость корзины теперь составляет Y £", ожидаемый результат - значения совпадают
-    assert alert_text == basket_text
+        # Act
+        button_first = browser.find_element_by_css_selector(first_button_locator)
+        button_first.click()
 
-finally:
-    # успеваем скопировать код за 30 секунд
-    time.sleep(3)
-    # закрываем браузер после всех манипуляций
-    browser.quit()
+        # Assert
+        alert_price_value = browser.find_element_by_css_selector(basket_update_alert_locator).text.split(' ')[0]
+        basket_price_value = browser.find_element_by_css_selector(basket_mini_locator).text.split(':')[1].split(' ')[1]
+
+        # Шаг 3, сверяем значение поля "Всего в корзине: X £" со значением в тексте алерта "Стоимость корзины теперь составляет Y £", ожидаемый результат - значения совпадают
+        assert alert_price_value == basket_price_value, \
+            f"Price in the alert and price in the basket should match."
+
+    finally:
+        # timeout just in case
+        time.sleep(3)
+        # закрываем браузер после всех манипуляций
+        browser.quit()
+
+
+test_basket_add_item()
 
 # не забываем оставить пустую строку в конце файла
