@@ -22,5 +22,5 @@ def test_button_add_to_basket_is_present(browser):
 
     # Assert
     basket_button_text_assert = basket_button_text_options[locale]
-    assert button_add_to_basket_text == basket_button_text_assert, \
+    assert button_add_to_basket_text in basket_button_text_assert, \
         f"Text on the button is not correct."
