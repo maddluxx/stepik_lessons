@@ -1,0 +1,105 @@
+{
+  "uid" : "eab190271f27bf33",
+  "name" : "test_message_disappeared_after_adding_product_to_basket",
+  "fullName" : "test_product_page.TestProductPage#test_message_disappeared_after_adding_product_to_basket",
+  "historyId" : "00be33377795fb724b903c2887a23a71",
+  "time" : {
+    "start" : 1608448047928,
+    "stop" : 1608448053960,
+    "duration" : 6032
+  },
+  "status" : "skipped",
+  "statusMessage" : "XFAIL not implemented yet\n\nAssertionError: Success message is not disappeared but it should",
+  "statusTrace" : "self = <module_5.test_product_page.TestProductPage object at 0x0000029624C25460>, browser = <selenium.webdriver.chrome.webdriver.WebDriver (session=\"e6daad67e7f239817012f753698dcad9\")>\n\n    @pytest.mark.xfail(reason=\"not implemented yet\")\n    def test_message_disappeared_after_adding_product_to_basket(self, browser):\n        # Arrange\n        page = ProductPage(browser, link)\n        page.open()\n        # Act\n        page.add_product_to_basket()\n        # Assert\n>       page.should_disappear_success_message()\n\nmodule_5\\test_product_page.py:68: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <module_5.pages.product_page.ProductPage object at 0x0000029624C2C760>\n\n    def should_disappear_success_message(self):\n>       assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \\\n            \"Success message is not disappeared but it should\"\nE       AssertionError: Success message is not disappeared but it should\n\nmodule_5\\pages\\product_page.py:15: AssertionError",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "browser",
+    "time" : {
+      "start" : 1608448044811,
+      "stop" : 1608448047927,
+      "duration" : 3116
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "testStage" : {
+    "status" : "skipped",
+    "statusMessage" : "XFAIL not implemented yet\n\nAssertionError: Success message is not disappeared but it should",
+    "statusTrace" : "self = <module_5.test_product_page.TestProductPage object at 0x0000029624C25460>, browser = <selenium.webdriver.chrome.webdriver.WebDriver (session=\"e6daad67e7f239817012f753698dcad9\")>\n\n    @pytest.mark.xfail(reason=\"not implemented yet\")\n    def test_message_disappeared_after_adding_product_to_basket(self, browser):\n        # Arrange\n        page = ProductPage(browser, link)\n        page.open()\n        # Act\n        page.add_product_to_basket()\n        # Assert\n>       page.should_disappear_success_message()\n\nmodule_5\\test_product_page.py:68: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <module_5.pages.product_page.ProductPage object at 0x0000029624C2C760>\n\n    def should_disappear_success_message(self):\n>       assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \\\n            \"Success message is not disappeared but it should\"\nE       AssertionError: Success message is not disappeared but it should\n\nmodule_5\\pages\\product_page.py:15: AssertionError",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "42bf807b7ca14d88",
+      "name" : "stdout",
+      "source" : "42bf807b7ca14d88.txt",
+      "type" : "text/plain",
+      "size" : 203
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true,
+    "stepsCount" : 0
+  },
+  "afterStages" : [ {
+    "name" : "browser::0",
+    "time" : {
+      "start" : 1608448053966,
+      "stop" : 1608448056362,
+      "duration" : 2396
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "@pytest.mark.xfail(reason='not implemented yet')"
+  }, {
+    "name" : "suite",
+    "value" : "test_product_page"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestProductPage"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-ST2EMUL"
+  }, {
+    "name" : "thread",
+    "value" : "33004-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_product_page"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ "@pytest.mark.xfail(reason='not implemented yet')" ]
+  },
+  "source" : "eab190271f27bf33.json",
+  "parameterValues" : [ ]
+}

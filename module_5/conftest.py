@@ -1,4 +1,5 @@
 import pytest
+from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
@@ -28,5 +29,9 @@ def browser(request):
         raise pytest.UsageError("--browser_name should be chrome or firefox")
     browser.user_language = request.config.getoption("language")
     yield browser
+    # получаем переменную с текущей датой и временем в формате ГГГГ-ММ-ДД_ЧЧ-ММ-СС
+    now = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+    # делаем скриншот с помощью команды Selenium'а и сохраняем его с именем "screenshot-ГГГГ-ММ-ДД_ЧЧ-ММ-СС"
+    browser.save_screenshot('screenshot-%s.png' % now)
     print("\nquit browser..")
     browser.quit()
