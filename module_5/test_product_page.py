@@ -1,4 +1,5 @@
 from .pages.product_page import ProductPage
+from .pages.login_page import LoginPage
 import time
 import pytest
 
@@ -35,32 +36,46 @@ class TestProductPage:
     #     page.should_be_correct_price_in_basket()
     #     #time.sleep(60)
 
-    @pytest.mark.xfail(reason="wrong test")
-    def test_guest_cant_see_success_message_after_adding_product_to_basket(self, browser):
-        # Arrange
-        page = ProductPage(browser, link)
-        page.open()
-        # Act
-        page.add_product_to_basket()
-        # Assert
-        page.should_not_be_success_message()
-        # time.sleep(1)
+    # @pytest.mark.xfail(reason="wrong test")
+    # def test_guest_cant_see_success_message_after_adding_product_to_basket(self, browser):
+    #     # Arrange
+    #     page = ProductPage(browser, link)
+    #     page.open()
+    #     # Act
+    #     page.add_product_to_basket()
+    #     # Assert
+    #     page.should_not_be_success_message()
+    #     # time.sleep(1)
+    #
+    # def test_guest_cant_see_success_message(self, browser):
+    #     # Arrange
+    #     page = ProductPage(browser, link)
+    #     page.open()
+    #     # Assert
+    #     page.should_not_be_success_message()
+    #     # time.sleep(1)
+    #
+    # @pytest.mark.xfail(reason="not implemented yet")
+    # def test_message_disappeared_after_adding_product_to_basket(self, browser):
+    #     # Arrange
+    #     page = ProductPage(browser, link)
+    #     page.open()
+    #     # Act
+    #     page.add_product_to_basket()
+    #     # Assert
+    #     page.should_disappear_success_message()
+    #     # time.sleep(1)
 
-    def test_guest_cant_see_success_message(self, browser):
-        # Arrange
+    def test_guest_should_see_login_link_on_product_page(self, browser):
+        link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
         page = ProductPage(browser, link)
         page.open()
-        # Assert
-        page.should_not_be_success_message()
-        # time.sleep(1)
+        page.should_be_login_link()
 
-    @pytest.mark.xfail(reason="not implemented yet")
-    def test_message_disappeared_after_adding_product_to_basket(self, browser):
-        # Arrange
+    def test_guest_can_go_to_login_page_from_product_page(self, browser):
+        link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
         page = ProductPage(browser, link)
         page.open()
-        # Act
-        page.add_product_to_basket()
-        # Assert
-        page.should_disappear_success_message()
-        # time.sleep(1)
+        page.go_to_login_page()
+        login_page = LoginPage(browser, browser.current_url)
+        login_page.should_be_login_page()
