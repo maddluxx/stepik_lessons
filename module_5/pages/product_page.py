@@ -16,12 +16,12 @@ class ProductPage(BasePage):
         assert self.is_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is not present"
 
     def should_be_correct_product_in_success_message(self):
-        assert self.product_name in self.browser.find_element(
-            *ProductPageLocators.SUCCESS_MESSAGE).text, "Success message do not have correct product name in it"
+        assert self.product_name == self.browser.find_element(
+            *ProductPageLocators.SUCCESS_MESSAGE_PRODUCT_NAME).text, "Success message do not have correct product name in it"
 
     def should_be_basket(self):
         assert self.is_element_present(*ProductPageLocators.BASKET), "Basket is not present"
 
     def should_be_correct_price_in_basket(self):
         assert self.product_price in self.browser.find_element(
-            *ProductPageLocators.BASKET).text, "Success message do not have correct product name in it"
+            *ProductPageLocators.BASKET).text, "Basket price does not match product price"

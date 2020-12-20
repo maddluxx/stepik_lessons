@@ -16,3 +16,4 @@ class ProductPageLocators():
     PRODUCT_PRICE = (By.CSS_SELECTOR, ".price_color")
     BASKET = (By.CSS_SELECTOR, ".basket-mini")
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, ".alert-success .alertinner")
+    SUCCESS_MESSAGE_PRODUCT_NAME = (By.CSS_SELECTOR, ".alert-success .alertinner strong")
