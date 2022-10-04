@@ -1,5 +1,5 @@
 # stepik_auto-tests-course
 
-Homework for the course "Автоматизация UI-тестирования на Python".
+Homework for the course "UI Test Automation with Python".
 
 The purpose of this repo is quite self-explanatory.
